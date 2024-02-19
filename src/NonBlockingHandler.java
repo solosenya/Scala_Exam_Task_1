@@ -12,7 +12,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * пока не будет получен результат (success/failure)
  */
 public class NonBlockingHandler implements Handler {
-    private final Client client = new ClientImpl();
+    private final Client client;
+
+    public NonBlockingHandler(Client client) {
+        this.client = client;
+    }
 
     @Override
     public ApplicationStatusResponse performOperation(String id) {
